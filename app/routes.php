@@ -11,7 +11,24 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showWelcome']);
+
+Route::resource('/book','BookController');
+
+Route::get('login',function(){
+	return View::make('login');
+});
+
+Route::post('login',function(){
+	$rules = array();
+	$validation = Validator::make(Input::all(),$rules);
+	if ($validation->fails()) {
+		return View::make('login')->withErrors($validation);
+	}
+	try{
+	  	Auth::attempt(array('identifier' => Input::get('username'), 'password' => Input::get('password')));
+	}
+	catch (Exception $e){
+		return View::make('login')->with(array('error' => $e->getMessage()));
+	}
 });

@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class BookController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,10 +15,16 @@ class HomeController extends BaseController {
 	|
 	*/
 	protected $layout = 'layout';
-	public function showWelcome()
+	public function index()
 	{
 		$this->layout->title = 'VirtualBook';
 		$this->layout->content = View::make('home');
+	}
+
+	public function create()
+	{
+		$this->layout->title = 'Create book | VirtualBook';
+		$this->layout->content = View::make('book.create');
 	}
 
 }

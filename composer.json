@@ -5,7 +5,12 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"toddish/verify": "3.*",
+		"gargron/fileupload": "1.0.*",
+		"intervention/image": "~2.0",
+		"cviebrock/eloquent-sluggable": "~2.0",
+		"laravel/cashier": "~2.0"
 	},
 	"autoload": {
 		"classmap": [

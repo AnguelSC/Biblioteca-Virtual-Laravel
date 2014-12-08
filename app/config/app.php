@@ -121,7 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+		'Toddish\Verify\VerifyServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+		'Laravel\Cashier\CashierServiceProvider'
 	),
 
 	/*
@@ -188,6 +190,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+		'Image' 		  => 'Intervention\Image\Facades\Image'
 
 	),
 
