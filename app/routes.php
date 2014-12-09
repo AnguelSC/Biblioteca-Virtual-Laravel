@@ -14,7 +14,8 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showWelcome']);
 
 Route::resource('/book','BookController');
-
+Route::resource('/author','AuthorController');
+Route::resource('/editorial','EditorialController');
 Route::get('login',function(){
 	return View::make('login');
 });

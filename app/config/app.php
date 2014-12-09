@@ -122,6 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Toddish\Verify\VerifyServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 		'Laravel\Cashier\CashierServiceProvider'
 	),

@@ -11,6 +11,7 @@
   {{HTML::style('css/simple-line-icons.css')}}
   {{HTML::style('css/font.css')}}
   {{HTML::style('css/app.css')}}
+  {{HTML::style('css/bootstrapValidator.css')}}
   {{HTML::style('js/jquery/nestable/nestable.css')}}
   {{HTML::style('js/jquery/slider/slider.css')}}
   {{HTML::style('js/jquery/chosen/chosen.css')}}
@@ -18,8 +19,8 @@
   {{HTML::style('js/jquery/datatables/dataTables.bootstrap.css')}}
   {{HTML::style('js/jquery/jvectormap/jquery-jvectormap.css')}}
   {{HTML::style('js/jquery/footable/footable.core.css')}}
-  {{HTML::style('js/jquery/select2/select2.css')}}
-  {{HTML::style('js/jquery/select2/select2-bootstrap.css')}}
+  {{HTML::style('js/jquery/datepicker/datepicker.css')}}
+
 </head>
 <body>
   <div class="app app-header-fixed app-aside-fixed" > 
@@ -244,7 +245,6 @@
   {{ HTML::script('js/jquery/slimscroll/jquery.slimscroll.min.js')}}
   {{ HTML::script('js/jquery/sortable/jquery.sortable.js')}}
   {{ HTML::script('js/jquery/nestable/jquery.nestable.js')}}
-  {{ HTML::script('js/jquery/file/bootstrap-filescript.min.js')}}
   {{ HTML::script('js/jquery/slider/bootstrap-slider.js')}}
   {{ HTML::script('js/jquery/chosen/chosen.jquery.min.js')}}
   {{ HTML::script('js/jquery/spinner/jquery.bootstrap-touchspin.min.js')}}
@@ -255,8 +255,67 @@
   {{ HTML::script('js/jquery/jvectormap/jquery-jvectormap.min.js')}} 
   {{ HTML::script('js/jquery/jvectormap/jquery-jvectormap-world-mill-en.js')}}
   {{ HTML::script('js/jquery/jvectormap/jquery-jvectormap-us-aea-en.js')}}
-  {{ HTML::script('js/jquery/footable/footable.all.min.js')}}
-  {{ HTML::script('js/jquery/select2/select2.min.js')}}
+  {{ HTML::script('js/jquery/datepicker/bootstrap-datepicker.js')}}
+  {{ HTML::script('js/jquery/file/bootstrap-filestyle.min.js')}}
+  {{ HTML::script('js/actions.js')}}
+  {{ HTML::script('js/bootstrapValidator.js')}}
+
   <!-- Lazy loading -->
+  <div class="modal fade in" id="add_author" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form action="" id="frm_add_author">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add author</h4>
+        </div>
+        <div class="modal-body">
+            <div id="message_author"> </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 label-control">Name</label>
+              <input type="text" name="author_name" id="author_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 label-control">Country</label>
+              <input type="text" name="author_country" id="author_country" class="form-control" required>
+            </div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="add_author_btn">Add Author</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade in" id="add_editorial" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form action="" id="frm_add_editorial">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add editorial</h4>
+        </div>
+        <div class="modal-body">
+            <div id="message_editorial"> </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 label-control">Name</label>
+              <input type="text" name="editorial_name" id="editorial_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 label-control">Country</label>
+              <input type="text" name="editorial_country" id="editorial_country" class="form-control" required>
+            </div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="add_editorial_btn">Add Editorial</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
