@@ -17,8 +17,8 @@ class CreateBookTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->string('slug');
-			$table->integer('id_editorial');
-			$table->string('picture');
+			$table->integer('editorial_id');
+			$table->string('picture')->default('default.jpg');
 			$table->boolean('status')->default(1);
 			$table->text('description')->nullable();
 			$table->timestamps();

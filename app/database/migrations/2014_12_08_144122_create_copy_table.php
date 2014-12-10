@@ -15,7 +15,7 @@ class CreateCopyTable extends Migration {
 		Schema::create('copies', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_book');
+			$table->integer('book_id');
 			$table->boolean('status');
 			$table->boolean('loan');
 			$table->timestamps();

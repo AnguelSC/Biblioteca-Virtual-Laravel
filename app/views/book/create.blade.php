@@ -3,7 +3,7 @@
 @section('content')
 <div class="wrapper-md">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading font-bold">
           Add book
@@ -26,24 +26,16 @@
               <label class="col-sm-2 control-label">Authors</label>
               <div class="col-sm-10">
                 <div class="input-group">
-                  <select name="authors[]" id="authors" class="form-control chosen" multiple="multiple">
-                    @foreach($authors as $author)
-                      <option value="{{$author->id}}">{{$author->name}}</option>
-                    @endforeach
-                  </select> 
+                  {{Form::select('authors[]',$authors,null,array('multiple'=>'multiple','class'=>'form-control chosen','id'=>'authors'))}}
                   <div class="input-group-btn"><a data-toggle="modal" data-backdrop="false" data-target="#add_author" class="btn btn-success"><i class="fa fa-plus"></i></a> </div>
                 </div>                  
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Authors</label>
+              <label class="col-sm-2 control-label">Editorial</label>
               <div class="col-sm-10">
                 <div class="input-group">
-                  <select name="editorial" id="editorial" class="form-control chosen">
-                    @foreach($editorials as $editorial)
-                      <option value="{{$editorial->id}}">{{$editorial->name}}</option>
-                    @endforeach
-                  </select>  
+                  {{Form::select('editorial',$editorials,null,array('class'=>'form-control chosen','id'=>'editorial'))}}
                   <div class="input-group-btn"><a data-toggle="modal" data-backdrop="false" data-target="#add_editorial" class="btn btn-success"><i class="fa fa-plus"></i></a> </div> 
                 </div>                     
               </div>

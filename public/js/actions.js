@@ -29,8 +29,8 @@ $(document).ready(function() {
 				$('#editorial_name').val('');
 				$('#editorial_country').val('');
 				if (data.type=='success') {
-					$('#editorials').append('<option value="'+data.editorial.id+'">'+data.editorial.name+'</option>');
-					$('#editorials').trigger("chosen:updated");
+					$('#editorial').append('<option value="'+data.editorial.id+'">'+data.editorial.name+'</option>');
+					$('#editorial').trigger("chosen:updated");
 					console.log(data)
 				};
 			}
@@ -65,5 +65,20 @@ $(document).ready(function() {
 			}
 		});
 		return false;
+	});
+
+	$('.delete_book').on('click',function(){
+		var slug = $(this).data('slug'),
+		id = $(this).data('id');
+		$.ajax({
+			url : '/book/'+slug,
+			type: 'DELETE',
+			success:function(){
+				$('#book_'+id).fadeOut();
+			},
+			error: function(data){
+				console.log(data);
+			}
+		})
 	});
 });

@@ -8,6 +8,14 @@ class Book extends Eloquent implements SluggableInterface{
         'save_to'    => 'slug',
     );
 	protected $table = 'books';
+	public function editorial()
+    {
+        return $this->hasOne('Editorial','id','editorial_id');
+    }
 
+    public function authors()
+    {
+        return $this->belongsToMany('Author','author_book');
+    }
 
 }

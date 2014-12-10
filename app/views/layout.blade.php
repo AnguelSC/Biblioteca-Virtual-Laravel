@@ -76,36 +76,6 @@
                 </span>
                 <span class="hidden-sm hidden-md">{{Auth::user()->username}}</span> <b class="caret"></b>
               </a>
-              <!-- dropdown -->
-              <ul class="dropdown-menu animated fadeInRight w">
-                <li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
-                  <div>
-                    <p>300mb of 500mb used</p>
-                  </div>
-                  <div class="progress-xs m-b-none bg-white progress ng-isolate-scope" value="60">
-                    <div class="progress-bar" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="60%" ng-transclude="" style="width: 60%;"></div>
-                  </div>
-                </li>
-                <li>
-                  <a href="">
-                    <span class="badge bg-danger pull-right">30%</span>
-                    <span>Settings</span>
-                  </a>
-                </li>
-                <li>
-                  <a ui-sref="app.page.profile" href="#/app/page/profile">Profile</a>
-                </li>
-                <li>
-                  <a ui-sref="app.docs" href="#/app/docs">
-                    <span class="label bg-info pull-right">new</span>
-                    Help
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a ui-sref="access.signin" href="#/access/signin">Logout</a>
-                </li>
-              </ul>
               <!-- / dropdown -->
             </li>
           </ul>
@@ -125,66 +95,29 @@
               <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                 <span translate="aside.nav.HEADER" class="ng-scope">Navigation</span>
               </li>
-              <li>
+              <li class="{{ Request::is( 'book*') ? 'active' : '' }}">
                 <a href="" class="auto">
                   <span class="pull-right text-muted">
                     <i class="fa fa-fw fa-angle-right text"></i>
                     <i class="fa fa-fw fa-angle-down text-active"></i>
                   </span>
-                  <i class="glyphicon glyphicon-briefcase icon"></i>
-                  <span translate="aside.nav.components.ui_kits.UI_KITS" class="ng-scope">UI Kits</span>
+                  <i class="fa fa-book"></i>
+                  <span class="ng-scope">Book's</span>
                 </a>
                 <ul class="nav nav-sub dk">
-                  <li class="nav-sub-header">
-                    <a href="">
-                      <span translate="aside.nav.components.ui_kits.UI_KITS" class="ng-scope">UI Kits</span>
+                  <li>
+                    <a href="{{URL::to('book')}}">
+                      <span class="ng-scope">List</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.buttons" href="#/app/ui/buttons">
-                      <span translate="aside.nav.components.ui_kits.BUTTONS" class="ng-scope">Buttons</span>
+                  <li>
+                    <a href="{{URL::to('book/create')}}">
+                      <span class="ng-scope">Create</span>
                     </a>
                   </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.icons" href="#/app/ui/icons">
-                      <b class="badge bg-info pull-right">3</b>
-                      <span translate="aside.nav.components.ui_kits.ICONS" class="ng-scope">Icons</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.grid" href="#/app/ui/grid">
-                      <span translate="aside.nav.components.ui_kits.GRID" class="ng-scope">Grid</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.bootstrap" href="#/app/ui/bootstrap">
-                      <b class="badge bg-primary pull-right">16</b>
-                      <span translate="aside.nav.components.ui_kits.BOOTSTRAP" class="ng-scope">Bootstrap</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.sortable" href="#/app/ui/sortable">
-                      <span translate="aside.nav.components.ui_kits.SORTABLE" class="ng-scope">Sortable</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.portlet" href="#/app/ui/portlet">
-                      <span translate="aside.nav.components.ui_kits.PORTLET" class="ng-scope">Portlet</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.timeline" href="#/app/ui/timeline">
-                      <span translate="aside.nav.components.ui_kits.TIMELINE" class="ng-scope">Timeline</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.jvectormap" href="#/app/ui/jvectormap">
-                      <span translate="aside.nav.components.ui_kits.VECTOR_MAP" class="ng-scope">Vector Map</span>
-                    </a>
-                  </li>
-                  <li ui-sref-active="active">
-                    <a ui-sref="app.ui.googlemap" href="#/app/ui/googlemap">
-                      <span>Google Map</span>
+                  <li>
+                    <a href="{{URL::to('book/search')}}">
+                      <span class="ng-scope">Search</span>
                     </a>
                   </li>
                 </ul>
@@ -277,7 +210,7 @@
             </div>
             <div class="form-group">
               <label for="" class="col-sm-2 label-control">Country</label>
-              <input type="text" name="author_country" id="author_country" class="form-control" required>
+              <input type="text" name="author_country" id="author_country" class="form-control">
             </div>
          
         </div>
@@ -305,7 +238,7 @@
             </div>
             <div class="form-group">
               <label for="" class="col-sm-2 label-control">Country</label>
-              <input type="text" name="editorial_country" id="editorial_country" class="form-control" required>
+              <input type="text" name="editorial_country" id="editorial_country" class="form-control">
             </div>
          
         </div>

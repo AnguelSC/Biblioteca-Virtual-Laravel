@@ -29,7 +29,7 @@
       </div>
       <div class="list-group list-group-sm">
         <div class="list-group-item">
-          <input type="text" placeholder="Email" class="form-control no-border" name="username" focus="" required="">
+          <input type="text" placeholder="Username" class="form-control no-border" name="username" focus="" required="">
         </div>
         <div class="list-group-item">
            <input type="password" placeholder="Password" class="form-control no-border" name="password" required="">
